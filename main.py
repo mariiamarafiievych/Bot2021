@@ -86,7 +86,7 @@ def start_message(message):
 
 """
     start_5_text ="""*Даша*"""
-    start_6_text =""" - експертка з сексу;
+    start_6_text =""" - експертка з сексу та місячних;
     
 """
 
@@ -115,7 +115,7 @@ def start_message(message):
     start_17_text =""" буде відповідальна за твій класний настрій та смачну їжу."""
     start_text = start_0_text + start_1_text + start_2_text + start_3_text + start_4_text + start_5_text + start_6_text + start_7_text+start_8_text+start_9_text+start_10_text+start_11_text+start_12_text+start_13_text+start_14_text+start_15_text+start_16_text+start_17_text
     bot.send_message(message.chat.id, start_text, reply_markup=keyboard1, parse_mode="Markdown")
-
+    bot.send_sticker(message.chat.id,"CAACAgIAAxkBAAEB0dpgEUPxbM2cHj5JLjD0Xw51bvbyMwACGQADjAABfxwvDn60hrxInh4E")
 
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
@@ -289,18 +289,50 @@ def chita(message):
 def histories(message):
     if message.text == 'Історія Юлі':
         bot.send_message(message.from_user.id, df_histories.loc[message.text]['text'])
+        bot.send_chat_action(message.chat.id, 'upload_photo')
+        img1 = open('Юля.png', 'rb')
+        bot.send_photo(message.chat.id, img1)
+        img1.close()
+        img2 = open('Юля.png', 'rb')
+        bot.send_photo(message.chat.id, img2)
+        img2.close()
         bot.register_next_step_handler(message, histories)
     elif message.text == 'Історія Світлани':
         bot.send_message(message.from_user.id, df_histories.loc[message.text]['text'])
+        bot.send_chat_action(message.chat.id, 'upload_photo')
+        img1 = open('Світлана.png', 'rb')
+        bot.send_photo(message.chat.id, img1)
+        img1.close()
+        img2 = open('Світлана 2.png', 'rb')
+        bot.send_photo(message.chat.id, img2)
+        img2.close()
         bot.register_next_step_handler(message, histories)
     elif message.text == 'Історія Жанни':
         bot.send_message(message.from_user.id, df_histories.loc[message.text]['text'])
+        bot.send_chat_action(message.chat.id, 'upload_photo')
+        img1 = open('жанна2.png', 'rb')
+        bot.send_photo(message.chat.id, img1)
+        img1.close()
         bot.register_next_step_handler(message, histories)
     elif message.text == 'Історія Ірини':
         bot.send_message(message.from_user.id, df_histories.loc[message.text]['text'])
+        bot.send_chat_action(message.chat.id, 'upload_photo')
+        img1 = open('Ірина.png', 'rb')
+        bot.send_photo(message.chat.id, img1)
+        img1.close()
+        img2 = open('Ірина 2.png', 'rb')
+        bot.send_photo(message.chat.id, img2)
+        img2.close()
         bot.register_next_step_handler(message, histories)
     elif message.text == 'Історія Домініки':
         bot.send_message(message.from_user.id, df_histories.loc[message.text]['text'])
+        bot.send_chat_action(message.chat.id, 'upload_photo')
+        img1 = open('Доминика.png', 'rb')
+        bot.send_photo(message.chat.id, img1)
+        img1.close()
+        img2 = open('Доминика2.png', 'rb')
+        bot.send_photo(message.chat.id, img2)
+        img2.close()
         bot.register_next_step_handler(message, histories)
     elif message.text == 'Тут допоможуть':
         bot.send_message(message.from_user.id, df_histories.loc[message.text]['text'])
